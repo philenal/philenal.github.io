@@ -69,7 +69,7 @@ export default function OverlayProjects(props) {
   ]
 
   const projectCards = projects.map((project) => {
-    return <ProjectCard {...project}/>
+    return <ProjectCard key={project.name} {...project}/>
   })
   return (
     <>

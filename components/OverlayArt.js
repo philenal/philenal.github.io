@@ -13,7 +13,7 @@ export default function OverlayArt() {
   const imagesSet = new Set(images);
   const newImages = [...imagesSet];
   const imageCards = newImages.map((image) => {
-    return <ImageCard image={image}/>
+    return <ImageCard key={image} image={image}/>
   })
 
   return (
