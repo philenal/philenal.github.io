@@ -13,10 +13,10 @@ export default function OverlayHome(props) {
             <b>
               mit 2024 
             <br/> 
-              mathematics + computer science
+              cs
             </b>
             <br/> 
-            web development enthusiast + artist
+            web dev + art
         </p>
       </RightMiddle>
     </Container>
