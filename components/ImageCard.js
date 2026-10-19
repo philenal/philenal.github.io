@@ -8,7 +8,7 @@ export default function ImageCard(props) {
         <>
         <CardContainer>
             <ArtGlassCard>
-                <Image src={image} width={300} height={300}/>
+                <Image src={image} alt="" width={300} height={300}/>
             </ArtGlassCard>
         </CardContainer>
         </>

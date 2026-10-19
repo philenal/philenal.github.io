@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GlassCard, CardBody, CardImage, CardContainer, View } from './styles';
 import Image from 'next/image';
 
@@ -9,7 +9,7 @@ export default function ProjectCard(props) {
         <CardContainer>
             <CardImage>
                 <div>
-                <Image src={`/projects/${image}`} width={300} height={300}/>
+                <Image src={`/projects/${image}`} alt={name} width={300} height={300}/>
                 </div>
             </CardImage>
             <GlassCard>

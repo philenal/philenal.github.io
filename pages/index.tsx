@@ -10,6 +10,7 @@ import OverlayArt from '@/components/OverlayArt';
 import { AboutContainer, ProjectsContainer, SiteContainer, ArtContainer, HomeContainer, CanvasWrap, Anchor } from '../components/styles'
 import NavBar from '../components/NavBar';
 import { GlobalStyle } from '../components/styles'
+import { FontRoot } from '../components/fonts'
 // camera position for eggberry: [0, 0, 7]
 export default function App() {
   const aboutRef = useRef(null);
@@ -18,7 +19,7 @@ export default function App() {
   const homeRef = useRef(null);
 
   return (
-    <>
+    <FontRoot>
 
 <NavBar homeRef={homeRef} aboutRef={aboutRef} projectsRef={projectsRef} artRef={artRef}/>
     <SiteContainer>
@@ -49,6 +50,6 @@ export default function App() {
         </Anchor>
       </ArtContainer>
       </SiteContainer>
-    </>
+    </FontRoot>
   );
 }
