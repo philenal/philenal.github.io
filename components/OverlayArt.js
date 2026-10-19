@@ -1,4 +1,4 @@
-import { FlexContainerCol, FlexContainerRow} from './styles'
+import { FlexContainerCol, FlexContainerRow, SwanFeature } from './styles'
 import ImageCard from './ImageCard';
 
 
@@ -21,6 +21,7 @@ export default function OverlayArt() {
     <>
       <FlexContainerCol>
         <div><h1>art</h1></div>
+        <SwanFeature src="/Cloud-Swan.png" alt="handmade swan drawing" />
         <FlexContainerRow>
           {imageCards}
         </FlexContainerRow>

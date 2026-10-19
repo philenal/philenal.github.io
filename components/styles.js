@@ -9,20 +9,17 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     overflow-x: clip;
     background:
-      radial-gradient(1200px 600px at 80% -10%, rgba(221, 214, 243, 0.55), transparent 60%),
-      radial-gradient(900px 500px at -10% 20%, rgba(250, 172, 168, 0.28), transparent 55%),
-      #fbf8fb;
-    color: #4e4b60;
+      radial-gradient(900px 480px at 0% -10%, rgba(255, 255, 255, 0.7), transparent 60%),
+      radial-gradient(700px 420px at 100% 0%, rgba(255, 214, 140, 0.45), transparent 55%),
+      linear-gradient(180deg, #fff8dc 0%, #fff3c4 40%, #ffe7a3 100%);
+    color: #3c3a38;
   }
   html {
     scroll-padding-top: 96px;
   }
-  h1 {
-    scroll-margin-top: 96px;
-  }
   ::selection {
-    background: #faaca8;
-    color: #3c2430;
+    background: #f6c7b6;
+    color: #3c3a38;
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -32,171 +29,226 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const glassSurface = `
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(250, 172, 168, 0.42);
-  box-shadow: 0 14px 36px rgba(70, 48, 96, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+const sectionHeading = `
+  h1 {
+    font-family: var(--font-heading), Georgia, serif;
+    font-weight: 500;
+    font-synthesis: none;
+    font-size: clamp(3rem, 6vw, 4.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: #3c3a38;
+    background: none;
+    -webkit-text-fill-color: #3c3a38;
+    text-align: left;
+    margin: 0 0 22px;
+    width: 100%;
+  }
 `
 
 export const SiteContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  z-index: 1;
   width: 100%;
   overflow-x: clip;
   font-family: var(--font-body), "Segoe UI", sans-serif;
-  color: #4e4b60;
-  & h1 {
-    font-family: var(--font-heading), "Segoe UI", sans-serif;
-    font-weight: 600;
-    font-synthesis: none;
-    background: #ddd6f3;
-    background: linear-gradient(105deg, #faaca8, #ddd6f3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
-    margin: 0.15em 0 0.4em;
-    text-align: center;
-  }
+  color: #3c3a38;
   & p {
     overflow-wrap: break-word;
-    line-height: 1.65;
+    line-height: 1.55;
+  }
+`
+
+export const CloudLayer = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  & span {
+    position: absolute;
+    background: rgba(255, 253, 248, 0.78);
+    border-radius: 50%;
+  }
+  & span:nth-child(1) {
+    width: 220px;
+    height: 78px;
+    top: 120px;
+    left: -40px;
+    box-shadow: 70px 18px 0 10px rgba(255,253,248,0.7), 130px -8px 0 -6px rgba(255,253,248,0.65);
+  }
+  & span:nth-child(2) {
+    width: 180px;
+    height: 64px;
+    top: 64%;
+    right: -30px;
+    box-shadow: -60px 10px 0 8px rgba(255,253,248,0.72);
+  }
+  & span:nth-child(3) {
+    width: 140px;
+    height: 48px;
+    bottom: 8%;
+    left: 8%;
   }
 `
 
 export const Container = styled.div`
-  font-family: var(--font-body), "Segoe UI", sans-serif;
   position: relative;
   z-index: 1;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  height: auto;
-  color: #4e4b60;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  min-height: calc(100vh - 78px);
+  min-height: calc(100dvh - 78px);
   box-sizing: border-box;
-  padding: 0 16px 3rem;
-  @media (max-width: 780px) {
-    padding-top: 84px;
+  padding: 18px 0 48px;
+  @media (max-width: 860px) {
+    width: min(1120px, calc(100% - 32px));
+    min-height: 0;
+    padding-top: 8px;
   }
 `
-export const HomeContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  font-family: var(--font-body), "Segoe UI", sans-serif;
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  height: auto;
-  overflow: hidden;
-  & p {
-    color: #5e516c;
+
+export const HeroGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 12px;
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
   }
+`
+
+export const HeroCopy = styled.div`
   & h1 {
-    font-family: var(--font-heading), "Segoe UI", sans-serif;
-    padding: 0 0.04em;
-    font-weight: 600;
+    font-family: var(--font-heading), Georgia, serif;
+    font-weight: 500;
     font-synthesis: none;
-    white-space: nowrap;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    margin: clamp(2.4rem, 10vh, 5.5rem) auto 0.4rem;
-    width: max-content;
-    max-width: calc(100% - 8px);
-    position: relative;
-    z-index: 2;
-    font-size: clamp(2.75rem, calc((88vw - 300px) / 6.1), 10.5rem);
-    text-align: center;
-    @media (max-width: 780px) {
-      font-size: clamp(2.5rem, calc((100vw - 40px) / 6.1), 7.25rem);
-      margin-top: 0.4rem;
+    font-size: clamp(3.4rem, 8vw, 7.1rem);
+    line-height: 0.84;
+    letter-spacing: -0.03em;
+    color: #3c3a38;
+    background: none;
+    -webkit-text-fill-color: #3c3a38;
+    margin: 0;
+    text-align: left;
+  }
+  & svg {
+    display: block;
+    width: min(240px, 50%);
+    height: 12px;
+    margin: 12px 0 22px;
+  }
+  & p {
+    margin: 0;
+    font-size: 1.28rem;
+    line-height: 1.35;
+    color: #5e5850;
+  }
+  & b {
+    display: block;
+    color: #3c3a38;
+    font-weight: 600;
+  }
+  & span {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px 5px;
+    border-radius: 999px;
+    background: rgba(229, 107, 79, 0.16);
+    color: #9a4332;
+    font-weight: 500;
+  }
+  @media (max-width: 860px) {
+    & h1 {
+      font-size: clamp(3.2rem, 14vw, 4.6rem);
     }
   }
 `
 
-export const CanvasWrap = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+export const Swan = styled.img`
+  width: min(520px, 100%);
+  height: auto;
+  display: block;
+  justify-self: center;
+  background: none;
+  border: 0;
+  filter: none;
+  mix-blend-mode: normal;
+  @media (max-width: 860px) {
+    width: min(420px, 92%);
+    order: -1;
+    margin: 0 auto;
+  }
+`
+
+export const SwanFeature = styled.img`
+  width: min(440px, 86%);
+  height: auto;
+  display: block;
+  margin: 0 auto 8px;
+  filter: none;
+  mix-blend-mode: normal;
+`
+
+export const HomeContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 74px;
 `
 
 export const Anchor = styled.div`
-  scroll-margin-top: 96px;
+  scroll-margin-top: 88px;
 `
 
 const sectionBase = `
-  font-family: var(--font-body), "Segoe UI", sans-serif;
   width: 100%;
-  color: #4e4b60;
   box-sizing: border-box;
-  padding: 1.5rem 0 4.5rem;
+  padding: 28px 0 72px;
+  ${sectionHeading}
 `
 
 export const AboutContainer = styled.div`
   ${sectionBase}
-  min-height: 100vh;
-  min-height: 100dvh;
   height: auto;
   & li {
     font-size: 1rem;
-    line-height: 1.65;
-    margin: 0 0 0.95rem;
-  }
-  & ul {
-    margin: 1.1rem 0 0;
-    padding-left: 1.15rem;
-  }
-  & li::marker {
-    color: #e09aaa;
+    line-height: 1.55;
+    margin: 0;
   }
 `
 
 export const ProjectsContainer = styled.div`
   ${sectionBase}
-  height: fit-content;
-  padding-bottom: 3rem;
-`
-export const ArtContainer = styled.div`
-  ${sectionBase}
-  height: fit-content;
+  height: auto;
 `
 
-export const Center = styled.div`
-  text-align: center;
-`
+export const Center = styled.div``
+export const RightMiddle = styled.div``
+export const CanvasWrap = styled.div``
 
 export const Profile = styled.div`
   margin: 0;
   background-image: url('/profile.jpeg');
   background-size: cover;
   background-position: center 18%;
-  width: 100%;
-  max-width: 480px;
-  min-width: min(100%, 220px);
-  aspect-ratio: 2582 / 2414;
-  height: auto;
-  flex: 1 1 320px;
+  width: min(340px, 100%);
+  aspect-ratio: 1 / 1.08;
+  flex: 0 0 auto;
   align-self: center;
-  border-radius: 18px;
-  border: 1px solid rgba(250, 172, 168, 0.35);
-  box-shadow: 0 16px 40px rgba(70, 48, 96, 0.14);
+  border-radius: 63% 37% 54% 46% / 42% 58% 46% 58%;
+  box-shadow: 0 18px 36px rgba(90, 70, 30, 0.12);
+  @media (max-width: 860px) {
+    width: min(168px, 52%);
+  }
 `
 
 export const Emphasis = styled.span`
-  color: #b85270;
+  color: #9a4332;
   font-weight: 600;
-  font-size: 1.05em;
   line-height: inherit;
 `
 export const Role = styled.span`
-  color: #8d6174;
-  font-size: 0.86em;
+  color: #6e6848;
   font-weight: 500;
   line-height: inherit;
 `
@@ -204,153 +256,134 @@ export const Role = styled.span`
 export const View = styled.a`
   text-decoration: none;
   cursor: pointer;
-  pointer-events: all;
-  color: #b85270;
+  color: #9a4332;
   font-size: 0.92rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   display: inline-block;
   margin-top: 0.85rem;
-  border-bottom: 1px solid rgba(184, 82, 112, 0.45);
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  :hover {
-    color: #7d679c;
-    border-bottom-color: #7d679c;
-    transform: translateY(-1px);
-  }
-`
-export const Navbar = styled.nav`
-  z-index: 100;
-  font-family: var(--font-heading), "Segoe UI", sans-serif;
-  font-size: 0.98rem;
-  font-weight: 600;
-  font-synthesis: none;
-  letter-spacing: 0.08em;
-  position: fixed;
-  width: fit-content;
-  top: 18vh;
-  left: max(20px, 4vw);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  @media (max-width: 780px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    top: 10px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: fit-content;
-    max-width: calc(100vw - 16px);
-    align-items: center;
-    justify-content: center;
-    column-gap: 0.15rem;
-    row-gap: 0;
-    padding: 8px 12px;
-    border-radius: 999px;
-    ${glassSurface}
-  }
-  & p, a {
-    text-decoration: none;
-    cursor: pointer;
-    color: #b85270;
-    margin: 0;
-    padding: 0.28rem 0.15rem;
-    line-height: 1.3;
-    border-radius: 6px;
-    transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
-    @media (max-width: 780px) {
-      letter-spacing: 0.04em;
-      font-size: 0.92rem;
-      padding: 0.35rem 0.55rem;
-    }
-    @media (max-width: 420px) {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.4rem;
-    }
-  }
-  & p:hover, a:hover {
-    transform: translateY(-2px);
-    color: #7d679c;
-  }
-  & a:focus-visible, & p:focus-visible {
-    outline: 2px solid #c47b93;
-    outline-offset: 3px;
+  border-bottom: 1px solid rgba(229, 107, 79, 0.45);
+  &:hover {
+    color: #6e6848;
+    border-bottom-color: #6e6848;
   }
 `
 
-export const RightMiddle = styled.div`
-  position: absolute;
+export const Navbar = styled.nav`
+  z-index: 20;
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: max-content;
+  max-width: calc(100vw - 16px);
+  padding: 6px 8px 6px 14px;
+  background: rgba(255, 253, 248, 0.88);
+  border: 1px solid rgba(60, 58, 56, 0.1);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
   font-family: var(--font-body), "Segoe UI", sans-serif;
-  top: clamp(250px, 42vh, 480px);
-  right: max(20px, 5vw);
-  font-weight: 500;
-  font-size: 1.05rem;
-  line-height: 1.55;
-  width: min(34ch, 40vw);
-  max-width: calc(100vw - 32px);
-  text-align: right;
-  z-index: 2;
-  box-sizing: border-box;
-  color: #5e516c;
-  & b {
-    font-weight: 600;
-    color: #43384e;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  & p, & a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #5e5850;
+    margin: 0;
+    padding: 8px 12px;
+    line-height: 1.2;
+    border-radius: 999px;
   }
-  @media (max-width: 780px) {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: min(38ch, 100%);
-    margin: 0.35rem auto 2rem;
-    text-align: center;
-    font-size: 1rem;
+  & p:hover, & a:hover {
+    color: #3c3a38;
+  }
+  & a {
+    background: #3c3a38;
+    color: #fff8e8;
+    margin-left: 6px;
+    font-weight: 600;
+  }
+  & a:hover {
+    color: #fff8e8;
+  }
+  & a:focus-visible, & p:focus-visible {
+    outline: 2px solid #e56b4f;
+    outline-offset: 3px;
+  }
+  @media (max-width: 420px) {
+    padding-left: 8px;
+    & p, & a {
+      padding: 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+    }
   }
 `
 
 export const Glass = styled.div`
-  padding: 1.6rem clamp(1.1rem, 3vw, 2rem);
-  width: min(460px, 100%);
+  padding: 26px 28px 16px;
+  width: min(640px, 100%);
   box-sizing: border-box;
-  line-height: 1.65;
-  font-size: 1.02rem;
-  border-radius: 18px;
-  ${glassSurface}
+  line-height: 1.55;
+  font-size: 1.08rem;
+  border-radius: 28px;
+  background: rgba(255, 253, 248, 0.82);
+  border: 1px solid rgba(60, 58, 56, 0.1);
+  box-shadow: 0 16px 36px rgba(90, 70, 30, 0.07);
+  flex: 1 1 320px;
+  & ul {
+    list-style: none;
+    margin: 8px 0 10px;
+    padding: 0;
+  }
+  & li {
+    position: relative;
+    padding: 10px 0 10px 18px;
+    border-top: 1px solid rgba(60, 58, 56, 0.07);
+  }
+  & li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e56b4f;
+  }
+  @media (max-width: 860px) {
+    padding: 16px 16px 8px;
+    font-size: 0.98rem;
+  }
 `
 
 export const GlassCard = styled.div`
   pointer-events: auto;
   position: relative;
-  margin: -4.25rem 12px 0;
-  padding: 1.15rem 1.2rem 1.2rem;
-  width: min(320px, calc(100% - 8px));
+  margin: 0;
+  padding: 16px 18px 18px;
+  width: 100%;
   box-sizing: border-box;
-  border-radius: 16px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  ${glassSurface}
+  background: transparent;
   & p {
-    color: #5c5870;
-    margin: 0.35rem 0 0;
+    color: #5e5850;
+    margin: 8px 0 0;
   }
 `
 
 export const ArtGlassCard = styled.div`
-  padding: 12px;
-  width: min(280px, calc(100vw - 48px));
+  width: 100%;
   box-sizing: border-box;
-  border-radius: 18px;
   margin: 0;
-  color: #6a657c;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  ${glassSurface}
+  background: #fffdf8;
   & img {
-    border-radius: 12px;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.45s ease;
   }
 `
 
@@ -361,94 +394,111 @@ export const CardBody = styled.div`
     line-height: 1.55;
   }
   & p:first-of-type {
-    color: #a56d84;
+    color: #6e6848;
     font-size: 0.78rem;
-    letter-spacing: 0.045em;
+    letter-spacing: 0.03em;
     line-height: 1.4;
     margin-top: 0.45rem;
   }
   & p:first-of-type:empty {
     display: none;
   }
-  & h1 {
-    background: linear-gradient(105deg, #d86b84, #8d74b0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.28rem;
-    line-height: 1.25;
+  && h1 {
+    font-family: var(--font-heading), Georgia, serif;
+    font-weight: 600;
+    font-size: 1.55rem;
+    line-height: 1.05;
     letter-spacing: -0.02em;
     margin: 0;
     text-align: left;
-    overflow-wrap: break-word;
+    color: #3c3a38;
+    background: none;
+    -webkit-text-fill-color: #3c3a38;
+    overflow-wrap: anywhere;
   }
 `
 
 export const CardImage = styled.div`
-  width: min(300px, 100%);
-  margin: 0 auto;
-  border-radius: 16px;
+  width: 100%;
   overflow: hidden;
-  & div {
-    width: 100%;
-  }
+  background: #fff6d8;
   & img {
-    border-radius: 16px;
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 188px;
+    object-fit: cover;
     display: block;
-    opacity: 0.88;
-    transition: transform 0.45s ease, opacity 0.45s ease;
+    border-radius: 0;
+    opacity: 1;
   }
 `
 
 export const FlexContainerCol = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-direction: column;
   position: relative;
-  width: min(1080px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 48px));
   margin: 0 auto;
-  @media (min-width: 781px) {
-    width: min(1080px, calc(90vw - 240px));
-  }
   height: fit-content;
   box-sizing: border-box;
+  @media (max-width: 860px) {
+    width: min(1120px, calc(100% - 32px));
+  }
 `
+
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   height: auto;
-  width: min(340px, 100%);
   box-sizing: border-box;
   margin: 0;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: translateY(-6px);
-  }
-  &:hover img {
-    opacity: 1;
-    transform: scale(1.045);
-  }
-  &:hover ${GlassCard},
-  &:hover ${ArtGlassCard} {
-    box-shadow: 0 18px 42px rgba(70, 48, 96, 0.16);
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid rgba(60, 58, 56, 0.1);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(90, 70, 30, 0.08);
+  flex: 1 1 320px;
+  max-width: calc(50% - 14px);
+  @media (max-width: 860px) {
+    max-width: 100%;
   }
 `
 
 export const FlexContainerRow = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   position: relative;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  gap: 28px 36px;
+  gap: 22px;
+  @media (max-width: 860px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+export const ArtContainer = styled.div`
+  ${sectionBase}
+  height: auto;
+  ${FlexContainerRow} {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  ${CardContainer} {
+    flex: 1 1 200px;
+    max-width: calc(33.33% - 16px);
+  }
+  @media (max-width: 860px) {
+    ${CardContainer} {
+      max-width: calc(50% - 12px);
+    }
+  }
 `

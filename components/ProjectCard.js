@@ -9,7 +9,7 @@ export default function ProjectCard(props) {
         <CardContainer>
             <CardImage>
                 <div>
-                <Image src={`/projects/${image}`} alt={name} width={300} height={300}/>
+                <Image src={`/projects/${image}`} alt={name} width={640} height={400} style={{ width: '100%', height: '188px', objectFit: 'cover' }}/>
                 </div>
             </CardImage>
             <GlassCard>

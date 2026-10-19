@@ -73,7 +73,8 @@ const nunitoSans = Nunito_Sans({
 //   fraunces-source   Fraunces headings, Source Sans 3 body
 //   syne-dm           Syne headings, DM Sans body
 //   cormorant-nunito  Cormorant Garamond headings, Nunito Sans body
-export const ACTIVE_PAIRING = 'aqua-outfit'
+//   cormorant-outfit  Cormorant Garamond headings, Outfit body
+export const ACTIVE_PAIRING = 'cormorant-outfit'
 
 export const PAIRINGS = {
   aqua: {
@@ -105,6 +106,12 @@ export const PAIRINGS = {
     heading: '--font-cormorant',
     body: '--font-nunito-sans',
     description: 'High-contrast elegant serif with a rounded friendly body.',
+  },
+  'cormorant-outfit': {
+    label: 'Cormorant + Outfit',
+    heading: '--font-cormorant',
+    body: '--font-outfit',
+    description: 'Soft serif headings on a butter sky, with a plain sans body.',
   },
 }
 

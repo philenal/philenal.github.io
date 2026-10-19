@@ -16,6 +16,7 @@ export default function OverlayAbout(props) {
           <h1>about</h1>
         </div>
         <FlexContainerRow>
+          <Profile />
           <Glass>
             I'm a <Emphasis>MIT'24 CS graduate</Emphasis> and a{" "}
             <Emphasis>YC alum</Emphasis>.
@@ -60,7 +61,6 @@ export default function OverlayAbout(props) {
               </li>
             </ul>
           </Glass>
-          <Profile />
         </FlexContainerRow>
       </FlexContainerCol>
     </>
