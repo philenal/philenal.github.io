@@ -181,13 +181,26 @@ export const Swan = styled.img`
   }
 `
 
-export const SwanFeature = styled.img`
-  width: min(440px, 86%);
-  height: auto;
+export const SwanFeature = styled.button`
   display: block;
+  width: min(440px, 86%);
   margin: 0 auto 8px;
-  filter: none;
-  mix-blend-mode: normal;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  & img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: none;
+    mix-blend-mode: normal;
+  }
+  &:focus-visible {
+    outline: 2px solid #e56b4f;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
 `
 
 export const HomeContainer = styled.div`
@@ -374,16 +387,78 @@ export const GlassCard = styled.div`
   }
 `
 
-export const ArtGlassCard = styled.div`
+export const ArtOpenButton = styled.button`
+  display: block;
   width: 100%;
-  box-sizing: border-box;
   margin: 0;
-  overflow: hidden;
-  background: #fffdf8;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
   & img {
     width: 100%;
     height: auto;
     display: block;
+  }
+  &:focus-visible {
+    outline: 2px solid #e56b4f;
+    outline-offset: -4px;
+  }
+`
+
+export const ArtLightboxBackdrop = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 20px 24px;
+  box-sizing: border-box;
+  background: rgba(60, 58, 56, 0.72);
+  cursor: pointer;
+`
+
+export const ArtLightboxFigure = styled.figure`
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  cursor: default;
+`
+
+export const ArtLightboxImage = styled.img`
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1100px, 92vw);
+  max-height: calc(100vh - 88px);
+  max-height: calc(100dvh - 88px);
+  object-fit: contain;
+  border-radius: 18px;
+  background: #fffdf8;
+  box-shadow: 0 24px 60px rgba(40, 30, 10, 0.35);
+`
+
+export const ArtLightboxClose = styled.button`
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 41;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(60, 58, 56, 0.12);
+  background: rgba(255, 253, 248, 0.94);
+  color: #3c3a38;
+  font: 500 1.6rem/1 var(--font-body), "Segoe UI", sans-serif;
+  cursor: pointer;
+  &:focus-visible {
+    outline: 2px solid #e56b4f;
+    outline-offset: 3px;
   }
 `
 
