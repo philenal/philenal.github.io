@@ -6,8 +6,13 @@ import { ServerStyleSheet } from 'styled-components'
 // served under basePath; assetPrefix only rewrites /_next/ assets.
 const basePath = process.env.__NEXT_ROUTER_BASEPATH || ''
 
+// Browsers keep a favicon cache keyed by the icon URL, separate from the
+// normal HTTP cache. The cloud icon replaced an older /favicon.ico at the
+// same path, so a query string is required for returning visitors to fetch it.
+const ICON_VERSION = '2'
+
 function asset(path) {
-  return `${basePath}${path}`
+  return `${basePath}${path}?v=${ICON_VERSION}`
 }
 
 export default class MyDocument extends Document {
