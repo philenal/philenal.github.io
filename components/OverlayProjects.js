@@ -7,7 +7,7 @@ export default function OverlayProjects(props) {
     {
       name: '3d modeling',
       year: '2023',
-      body: "learned blender and react-three-fiber to revamp this portfolio website to include 3d graphics (check out the keyboard!). check out the art section to see more blender creations :)",
+      body: "learned blender and react-three-fiber to revamp this portfolio website to include 3d graphics. check out the art section to see more blender creations :)",
       skillsUsed: "react three fiber | blender",
       image: "doll.gif",
     },
