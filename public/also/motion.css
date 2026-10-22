@@ -1,0 +1,210 @@
+:host, :root {
+  --butter: #faf0b8;
+  --butter-tint: #fdf8dc;
+  --butter-dot: #f3e39a;
+  --butter-ink: #5e5210;
+  --grain: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.85%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.1%20%200%200%200%200%200.09%20%200%200%200%200%200.07%20%200%200%200%200.05%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.ham { overflow: visible; }
+.boil .o2, .boil .o3 { opacity: 0; }
+.stk .squash,
+.stk .rig,
+.stk .eye,
+.stk .blink,
+.stk .sweat,
+.stk .tear,
+.stk .heart,
+.stk .hand,
+.stk .bag,
+.stk .confetti,
+.stk .rec,
+.stk .sparkle,
+.stk .shades,
+.stk .glint {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.stk[data-motion="once"] .squash,
+.stk[data-motion="loop"] .squash {
+  transform-box: view-box;
+  transform-origin: 32px 52px;
+  animation: ham-squash 1.2s ease-in-out;
+}
+.stk[data-motion="loop"] .squash { animation-iteration-count: infinite; }
+
+@keyframes ham-squash {
+  0%, 100% { transform: scale(1, 1); }
+  35% { transform: scale(1.05, 0.94); }
+  68% { transform: scale(0.97, 1.05); }
+}
+
+.stk[data-motion="once"] .ham-eyeing .rig,
+.stk[data-motion="loop"] .ham-eyeing .rig {
+  transform-box: view-box;
+  transform-origin: 34px 64px;
+  animation: ham-lean 1.2s ease-in-out;
+}
+.stk[data-motion="loop"] .ham-eyeing .rig { animation-iteration-count: infinite; }
+@keyframes ham-lean {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4.5deg) translate(1px, 0); }
+}
+
+.stk[data-motion="once"] .ham-eyeing .eye-l .blink,
+.stk[data-motion="once"] .ham-eyeing .eye-r .blink,
+.stk[data-motion="loop"] .ham-eyeing .eye-l .blink,
+.stk[data-motion="loop"] .ham-eyeing .eye-r .blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ham-blink 1.2s ease-in-out 0s;
+}
+.stk[data-motion="loop"] .ham-eyeing .eye-l .blink,
+.stk[data-motion="loop"] .ham-eyeing .eye-r .blink {
+  animation-iteration-count: infinite;
+}
+@keyframes ham-blink {
+  0%, 36%, 48%, 100% { transform: scaleY(1); }
+  42% { transform: scaleY(0.08); }
+}
+
+.stk[data-motion="once"] .ham-eyeing .eye,
+.stk[data-motion="loop"] .ham-eyeing .eye { animation: ham-dart 1.2s ease-in-out; }
+.stk[data-motion="loop"] .ham-eyeing .eye { animation-iteration-count: infinite; }
+.stk[data-motion="once"] .ham-eyeing .eye-r,
+.stk[data-motion="loop"] .ham-eyeing .eye-r { animation-delay: 40ms; }
+@keyframes ham-dart {
+  0%, 100% { transform: translate(0, 0); }
+  28% { transform: translate(2.6px, 0.2px); }
+  64% { transform: translate(-2.2px, 0); }
+}
+
+.stk[data-motion="once"] .ham-eyeing .sweat,
+.stk[data-motion="loop"] .ham-eyeing .sweat { animation: ham-drip 1.2s ease-in; }
+.stk[data-motion="loop"] .ham-eyeing .sweat { animation-iteration-count: infinite; }
+@keyframes ham-drip {
+  0% { transform: translateY(-4px); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translateY(16px); opacity: 0; }
+}
+
+.stk[data-motion="once"] .ham-liked .heart,
+.stk[data-motion="loop"] .ham-liked .heart { animation: ham-squeeze 1.2s ease-in-out; }
+.stk[data-motion="loop"] .ham-liked .heart { animation-iteration-count: infinite; }
+@keyframes ham-squeeze {
+  0%, 100% { transform: scale(1); }
+  38% { transform: scale(0.78); }
+  70% { transform: scale(1.14); }
+}
+.stk[data-motion="once"] .ham-liked .hand,
+.stk[data-motion="loop"] .ham-liked .hand { animation: ham-hug 1.2s ease-in-out; }
+.stk[data-motion="loop"] .ham-liked .hand { animation-iteration-count: infinite; }
+.ham-liked .hand-r { animation-direction: reverse; }
+@keyframes ham-hug {
+  0%, 100% { transform: translate(0, 0); }
+  45% { transform: translate(1.4px, -1.2px); }
+}
+.stk[data-motion="once"] .ham-liked .tear,
+.stk[data-motion="loop"] .ham-liked .tear { animation: ham-drip 1.2s ease-in; }
+.stk[data-motion="loop"] .ham-liked .tear { animation-iteration-count: infinite; }
+.stk[data-motion="once"] .ham-liked .glint,
+.stk[data-motion="loop"] .ham-liked .glint,
+.stk[data-motion="once"] .ham-eyeing .glint,
+.stk[data-motion="loop"] .ham-eyeing .glint { animation: ham-twinkle 1.2s ease-in-out; }
+.stk[data-motion="loop"] .glint { animation-iteration-count: infinite; }
+@keyframes ham-twinkle {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.2; }
+  70% { opacity: 1; }
+}
+
+.stk[data-motion="once"] .ham-bought .rig,
+.stk[data-motion="loop"] .ham-bought .rig {
+  transform-box: view-box;
+  transform-origin: 32px 64px;
+  animation: ham-hop 1.2s cubic-bezier(0.3, 1.35, 0.4, 1);
+}
+.stk[data-motion="loop"] .ham-bought .rig { animation-iteration-count: infinite; }
+@keyframes ham-hop {
+  0%, 100% { transform: translateY(0); }
+  32% { transform: translateY(-6px); }
+  58% { transform: translateY(1px); }
+}
+.stk[data-motion="once"] .ham-bought .bag,
+.stk[data-motion="loop"] .ham-bought .bag {
+  transform-origin: center top;
+  animation: ham-bag 1.2s ease-in-out;
+}
+.stk[data-motion="loop"] .ham-bought .bag { animation-iteration-count: infinite; }
+@keyframes ham-bag {
+  0%, 100% { transform: rotate(0deg); }
+  35% { transform: rotate(-6deg); }
+  70% { transform: rotate(4deg); }
+}
+.stk[data-motion="once"] .ham-bought .tear,
+.stk[data-motion="loop"] .ham-bought .tear { animation: ham-drip 1.2s ease-in; }
+.stk[data-motion="loop"] .ham-bought .tear { animation-iteration-count: infinite; }
+.stk[data-motion="once"] .ham-bought .confetti,
+.stk[data-motion="loop"] .ham-bought .confetti { animation: ham-pop 1.2s ease-out; }
+.stk[data-motion="loop"] .ham-bought .confetti { animation-iteration-count: infinite; }
+.ham-bought .c1 { animation-delay: 40ms; }
+.ham-bought .c2 { animation-delay: 90ms; }
+.ham-bought .c3 { animation-delay: 130ms; }
+.ham-bought .c4 { animation-delay: 60ms; }
+.ham-bought .c5 { animation-delay: 150ms; }
+@keyframes ham-pop {
+  0% { transform: scale(0.3) translateY(2px); opacity: 0; }
+  40% { transform: scale(1.25) translateY(-2px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.stk[data-motion="once"] .ham-creator .rig,
+.stk[data-motion="loop"] .ham-creator .rig {
+  transform-box: view-box;
+  transform-origin: 32px 64px;
+  animation: ham-bob 0.6s ease-in-out;
+}
+.stk[data-motion="once"] .ham-creator .rig { animation-iteration-count: 2; }
+.stk[data-motion="loop"] .ham-creator .rig { animation-iteration-count: infinite; }
+@keyframes ham-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2.5px) rotate(1.5deg); }
+}
+.stk[data-motion="once"] .ham-creator .rec,
+.stk[data-motion="loop"] .ham-creator .rec { animation: ham-rec 0.6s steps(1, end); }
+.stk[data-motion="once"] .ham-creator .rec { animation-iteration-count: 2; }
+.stk[data-motion="loop"] .ham-creator .rec { animation-iteration-count: infinite; }
+@keyframes ham-rec {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+.stk[data-motion="once"] .ham-creator .sparkle,
+.stk[data-motion="loop"] .ham-creator .sparkle { animation: ham-twinkle 1.2s ease-in-out; }
+.stk[data-motion="once"] .ham-creator .shades,
+.stk[data-motion="loop"] .ham-creator .shades { animation: ham-hug 1.2s ease-in-out; }
+.stk[data-motion="loop"] .ham-creator .shades { animation-iteration-count: infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stk *,
+  .stk,
+  .cameo,
+  .cameo * {
+    animation: none !important;
+  }
+  .boil .o2, .boil .o3 { opacity: 0 !important; }
+  .boil .o1 { opacity: 1 !important; }
+}
+
+/* The hand-drawn outline (o1) stays on. The extra boil passes never replace it. */
+.boil .o1 { opacity: 1; }
+
+/* Obsessed and caved blink both eyes on the same beat. */
+.stk[data-motion="loop"] .ham-liked .eye-l .blink,
+.stk[data-motion="loop"] .ham-liked .eye-r .blink,
+.stk[data-motion="loop"] .ham-bought .eye-l .blink,
+.stk[data-motion="loop"] .ham-bought .eye-r .blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ham-blink 1.2s ease-in-out 0s infinite;
+}
