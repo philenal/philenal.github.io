@@ -1,6 +1,24 @@
 import Link from 'next/link'
+import styled from 'styled-components'
 import { FlexContainerCol, FlexContainerRow} from './styles'
 import ProjectCard from './ProjectCard';
+
+const AlsoNote = styled.p`
+  margin: 0 0 28px;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: #5e5850;
+  a {
+    color: #9a4332;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(229, 107, 79, 0.45);
+  }
+  a:hover {
+    color: #6e6848;
+    border-bottom-color: #6e6848;
+  }
+`
 
 export default function OverlayProjects(props) {
   const projects = [
@@ -74,7 +92,12 @@ export default function OverlayProjects(props) {
   return (
     <>
       <FlexContainerCol>
-        <div><h1>projects</h1></div>
+        <div>
+          <h1>projects</h1>
+          <AlsoNote>
+            <a href="/also/">also</a> — a chrome extension for seeing what your friends are eyeing.
+          </AlsoNote>
+        </div>
         <FlexContainerRow>
           {projectCards}
         </FlexContainerRow>

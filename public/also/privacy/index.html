@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>privacy — also</title>
+  <meta name="description" content="Privacy policy for Also, a Chrome extension. What is stored, what stays on your device, and how to ask for deletion.">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FAF0B8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/also/site.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="wordmark" href="/also/">also</a>
+      <nav aria-label="Also">
+        <a href="/also/privacy/" aria-current="page">privacy</a>
+        <a href="/also/terms/">terms</a>
+      </nav>
+    </header>
+
+    <main class="doc">
+      <h1>privacy</h1>
+      <p class="updated">Last updated: October 22, 2026</p>
+
+      <p>Also is a Chrome extension that shows, on shopping sites, which of your friends are eyeing a product, obsessed with it, or have bought it. This policy says what Also collects, how that information is used, and the choices you have. Also is not yet listed on the Chrome Web Store.</p>
+
+      <h2>Account</h2>
+      <p>Your account is your email address. You sign in with a code or link emailed to you. Sign-in is handled by Supabase Auth. Also uses the email address to identify the account and to send that sign-in message. It is not shown to friends.</p>
+      <p>Sign-in emails may be sent via Resend, an email provider. Resend receives the email address and the message in order to deliver it.</p>
+
+      <h2>What is stored</h2>
+      <p>Also stores data in Supabase (Postgres, United States region):</p>
+      <ul>
+        <li>Profile: display name, handle, and friend code</li>
+        <li>Friend connections</li>
+        <li>Product signals you create: product page URL, title, image URL, price, site, status, and timestamp</li>
+      </ul>
+      <p>A status is the one you choose, such as eyeing, obsessed, or caved (bought). The image field is the picture’s URL on the product page.</p>
+
+      <h2>Shopping pages</h2>
+      <p>The extension reads shopping pages you visit locally to detect products and order-confirmation pages. That reading stays on your device. Also does not record your browsing history.</p>
+      <p>Product information is sent to the server only when you mark a product, or when you confirm adding purchases after checkout. If you do not mark a product and do not confirm a purchase, Also does not save that page.</p>
+
+      <h2>Friends</h2>
+      <p>Friends connect with invite codes. Your friend code is stored with your profile so someone can send you a connection. Friends you accept can see your product signals, and the display name and handle on your profile. People you have not accepted cannot see those signals through Also.</p>
+
+      <h2>What Also does not do</h2>
+      <p>Also does not sell your information. Also does not share it with advertisers. Also does not show ads.</p>
+      <p>Information is shared with service providers only to run Also: Supabase, for authentication and for the database in the United States, and Resend, to deliver sign-in emails.</p>
+
+      <h2>Your choices</h2>
+      <p>You can delete product signals in the extension. You can request account deletion using the contact below. A deletion request covers the account and the profile, friend connections, and product signals stored for it.</p>
+
+      <h2>Chrome Web Store Limited Use</h2>
+      <p>The use of information received from Google APIs will adhere to the <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data">Chrome Web Store User Data Policy</a>, including the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Limited Use requirements</a>.</p>
+      <p>Use of information collected by Also complies with the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+
+      <h2>Contact</h2>
+      <p>Questions and account-deletion requests: <a href="https://github.com/philenal/philenal.github.io/issues">open an issue on this site’s GitHub repository</a>.</p>
+      <!--
+        TODO: Philena — add a contact email address in this Contact section.
+        Do not publish a placeholder or guessed address.
+      -->
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the date at the top of the page will change.</p>
+    </main>
+
+    <footer class="foot">
+      <nav aria-label="Footer">
+        <a href="/also/privacy/" aria-current="page">privacy</a>
+        <a href="/also/terms/">terms</a>
+      </nav>
+      <a href="/">philena</a>
+    </footer>
+  </div>
+</body>
+</html>
