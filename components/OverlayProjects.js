@@ -25,7 +25,7 @@ export default function OverlayProjects(props) {
     {
       name: '3d modeling',
       year: '2023',
-      body: "learned blender and react-three-fiber to revamp this portfolio website to include 3d graphics (check out the keyboard!). check out the art section to see more blender creations :)",
+      body: "learned blender and react-three-fiber to revamp this portfolio website to include 3d graphics. check out the art section to see more blender creations :)",
       skillsUsed: "react three fiber | blender",
       image: "doll.gif",
     },
@@ -59,7 +59,7 @@ export default function OverlayProjects(props) {
       body: "3rd place team in National Mathworks Math Modeling Challenge. modeled the transition from diesel to electric trucking with the Lotka-Volterra approach. wrote a final paper that was presented on in a video.",
       skillsUsed: "excel | matlab | LaTeX",
       image: "mmodeling.png",
-      link: "https://m3challenge.siam.org/sites/default/files/uploads/M3%20THIRD%20PLACE_13202.pdf",
+      link: "https://m3challenge.siam.org/wp-content/uploads/M3-THIRD-PLACE_13202.pdf",
     },
     {
       name: 'PROMYS math research',
